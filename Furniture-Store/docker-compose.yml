@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  furniturestore:
+    image: ${DOCKER_REGISTRY-}furniturestore
+    build:
+      context: .
+      dockerfile: Furniture-Store/Dockerfile
