@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FurnitureStore.Services.Configuration
 {
-    public sealed class RolesConfiguration : IEntityTypeConfiguration<Role>
+    public sealed class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {

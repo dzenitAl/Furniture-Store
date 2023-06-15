@@ -7,6 +7,10 @@ namespace FurnitureStore.Services.Database
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+
+        }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -22,17 +26,21 @@ namespace FurnitureStore.Services.Database
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
 
-
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new UserConfiguration());
-            builder.ApplyConfiguration(new RolesConfiguration());
-
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new ReservationConfiguration());
+            builder.ApplyConfiguration(new CustomFurnitureReservationConfiguration());
+            builder.ApplyConfiguration(new OrderConfiguration());
+            builder.ApplyConfiguration(new OrderItemConfiguration());
+            builder.ApplyConfiguration(new NotificationConfiguration());
+            builder.ApplyConfiguration(new PictureConfiguration());
+            builder.ApplyConfiguration(new PaymentConfiguration());
+            builder.ApplyConfiguration(new ReportConfiguration());
+            builder.ApplyConfiguration(new PictureConfiguration());
+            builder.ApplyConfiguration(new SubcategoryConfiguration());
         }
     }
 }
